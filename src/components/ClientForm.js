@@ -16,12 +16,13 @@ export const ClientForm = ({ setUserInfo }) => {
   }
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit} className="client-form">
       <label>
         Nome:
         <input
           type="text"
           name="name"
+          placeholder="User"
           value={formData.name}
           onChange={handleInputChange}
           required
@@ -32,6 +33,7 @@ export const ClientForm = ({ setUserInfo }) => {
         <input
           type="email"
           name="email"
+          placeholder="User@email.com"
           value={formData.email}
           onChange={handleInputChange}
           required
@@ -39,5 +41,5 @@ export const ClientForm = ({ setUserInfo }) => {
       </label>
       <button type="submit">Enviar</button>
     </form>
-  )
-}
+  );
+};
