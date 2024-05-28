@@ -9,9 +9,7 @@ const ChatComponent = () => {
   const [messageInput, setMessageInput] = useState('');
   const [socket, setSocket] = useState(null);
   const [onlineUsers, setOnlineUsers] = useState(0);
-  // const [client, setClient] = useState(null)
-  const [pageLoad, setPageLoad] = useState(false);
-  const [isEmailSubmitted, setIsEmailSubmitted] = useState(false);
+  // const [client, setClient] = useState(null);
   const [newMessage, setNewMessage] = useState(null)
   const [messageSent, setMessageSent] = useState(false)
   const [enableSendBtn, setEnableSendBtn] = useState(false);
@@ -19,6 +17,10 @@ const ChatComponent = () => {
   const [showForm, setShowForm] = useState(showClientForm);
   const [showChat, setShowChat] = useState(false);
   const [expandedChat, setExpandedChat] = useState(false); 
+
+  const [searchParams] = useSearchParams();
+
+  const companyName = searchParams.get('company'); // teste
 
   const handleSendMessage = () => {
     console.log(messageInput, client, userChat._id)
@@ -55,7 +57,7 @@ const ChatComponent = () => {
       {expandedChat && (
         <div className="chat-header">
           <img src={Avatar} alt="User Avatar" className="user-avatar" />
-          <span className="user-name">{client?.name}</span>
+          <span className="user-name">{companyName || "Atendimento"}</span>
           <button className="minimize-button" onClick={handleIconClick}>
             X
           </button>
